@@ -40,6 +40,10 @@ button:focus-visible {
 .info {
   margin-bottom: 22px;
 }
+.info_category {
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
 
 .box {
   width: 100%;
@@ -90,20 +94,26 @@ button:focus-visible {
 
 /* HEADER */
 header  {
+  margin-top: -30px;
+  margin-bottom: -10px;
   width: 100%;
+  text-align: center;
 }
+
+
 
 header h2 {
   display: inline;
   font-size: 25px;
   font-weight: 700;
-  margin-bottom: 3px;
+  margin-bottom: 0px;
 }
 
 
 section {
   margin: 50px 0 25px 0;
 }
+
 
 /* h3 뒤에 필수 표시 */
 h3::after {
@@ -112,6 +122,13 @@ h3::after {
   top: -2px;
   content: "*";
   color: rgb(255, 114, 98);
+}
+/* 에러 메세지*/
+.info .error-msg {
+  position : absolute;
+  font-size : 11px;
+  color:red;
+  margin: 4px 0 0 10px;
 }
 
 /* 아이디 안 버튼 */
@@ -131,6 +148,17 @@ h3::after {
   font-size: 15px;
 }
 
+/* 비밀번호 */
+.info#info__pw #pw-input {
+  position:relative;
+}
+
+.info#info__pwRe #pwRe-input {
+  position: relative;
+}
+
+
+
 /* 버튼 */
 button#submit {
   width: 100%;
@@ -138,6 +166,7 @@ button#submit {
   border-radius: 3px;
   font-size: 15px;
   cursor: not-allowed;
+  
 }
 
 /* 가입하기 */
@@ -150,19 +179,49 @@ button#submit {
   font-size: 13px;
 }
 
-
-
-
 .my_btn {
   font-size: 17px;
   background-color: #7a7f8a;
   color: white;
   border: none;
-  width: 65px;
+  width: 67px;
   height: 30px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   border-radius: 20px;
 }
 
 .my_btn:active{
  background-color: #f68e0f;
 }
+
+/* 관심사 선택 셀렉*/
+
+.info#info__category #category-flex {
+  display: flex;
+}
+
+.info#info__category select {
+  margin-left : 7px;
+  color: #a0a0a0;
+}
+
+.info#info__category select:first-child {
+  margin-left : 0px;
+}
+
+.info#info__category select::-webkit-scrollbar {
+  width: 10px;
+}
+
+.info#info__category select::-webkit-scrollbar-thumb {
+  background-color: #b6b6b6;
+  border-radius: 3px;
+}
+
+.info#info__category select::-webkit-scrollbar-track {
+  background-color: #ebe9e9;
+  border-radius: 6px;
+}
+
+

@@ -7,16 +7,14 @@ import org.springframework.stereotype.Repository;
 import com.fornula.domain.member.dto.Interest;
 import com.fornula.domain.member.dto.Member;
 
-@Repository
-public class MemberJoinRepositoryImpl implements MemberJoinRepository {
-	
-	@Autowired
-	private SqlSession sqlSession;
-	
-	
-	
-	private static final String namespace = "com.fornula.domain.member.join.MemberJoinMapper";
+import lombok.RequiredArgsConstructor;
 
+@Repository
+@RequiredArgsConstructor
+public class MemberJoinRepositoryImpl implements MemberJoinRepository {
+
+	private final SqlSession sqlSession;
+		
 	@Override
 	public int join(MemberDTO memberDTO) throws Exception {
 		return sqlSession.getMapper(MemberJoinMapper.class).memberJoin(memberDTO);

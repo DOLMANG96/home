@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.fornula.domain.member.dto.Member;
 
 @Controller
 public class MemberJoinController {
@@ -21,9 +20,9 @@ public class MemberJoinController {
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String postJoin(@ModelAttribute Member member, Model model) throws Exception {
+	public String postJoin(@ModelAttribute MemberDTO memberDTO, Model model) throws Exception {
 		
-		memberJoinService.join(member);
+		memberJoinService.join(memberDTO);
 		return "join";
 	}
 }

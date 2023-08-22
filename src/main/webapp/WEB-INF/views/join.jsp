@@ -9,16 +9,15 @@
   <title>회원가입</title>
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-  <link rel="stylesheet" href="./css/main.css">
-  
+  <link rel="stylesheet" href="./css/join.css">
+  <script defer src="./js/join.js"></script>
   
 </head>
 <body>
- 
   <div class="container">
 
     <div id="header">
-      <a href="https://www.google.com" target="_blank" title="수정할거"><img src="./image/text_logo.png" id="logo"></a>
+      <a href="https://www.google.com" target="_blank" title="수정할거"><img src="./img/text_logo.png" id="logo"></a>
     </div>
     <div class="content">
       
@@ -27,74 +26,104 @@
       </header>
 
       <section>
-        <form action = "join" method="post">
+ <form name ="joinFrom"method="post">
+        <!-- id -->
         <h3>아이디</h3>
         <div class="info" id="info__id">
-          <div id="id-input">
-            <input class="box" type="text" placeholder="아이디 입력해 주세요."/>
-            <button id="id-check" onclick='check()'>중복 확인</button>
+          <div id="id-input" >
+            <input class="box" name ="id" type="text" placeholder="아이디 입력해 주세요."/>
+            <button id="id-check">중복 확인</button>
           </div>
+          <div class = "error-msg"></div>
           
         </div>
-
+        <!-- 이메일 -->
         <h3>이메일</h3>
         <div class="info">
-          <div id="id-input">
-            <input class="box" type="text" placeholder="이메일을 입력해 주세요."/>
-            
+          <div id="id-input" >
+            <input class="box" name = "email" type="text" placeholder="이메일을 입력해 주세요."/>
           </div>
-          
+          <div class = "error-msg"></div>
         </div>
-      
+        <!-- 비밀번호 -->
         <h3>비밀번호</h3>
-        <div class="info">
-          <input class="box" type="password" placeholder="비밀번호를 입력해 주세요.(8자리 이상)"/>
-          
+        <div class="info" id="info__pw">
+          <input class="box" name="password" type="password" placeholder="비밀번호를 입력해 주세요.(8자리 이상)"/>
+          <div class = "error-msg"></div>
         </div>
-        <div class="info">
+        <!-- 비밀번호 재확인-->
+        <div class="info" id="info__pwRe">
           <input class="box" type="password" placeholder="비밀번호를 한번 더 입력해 주세요."/>
-          
+          <div class = "error-msg"></div>
+        </div>
         
+        <!-- 3 가지 -->
+        <h3>관심사</h3>
+        <div class="info" id="info__category" >
+          <div id="category-flex">
+            <select class="box" id="category-big" onchange = "categorySelect1(this)">
+              <option disabled selected>대 카테고리</option>
+              <option value = "a">디자인</option>
+              <option value = "b">번역</option>
+              <option value = "c">사진 편집</option>
+              <option value = "d">세무</option>
+              <option value = "e">마케팅</option>
+            </select>
+            <select class="box" id="mcategory1">
+              <option disabled selected>중 카테고리</option>
+            </select>
+          </div>
+          <div class="error-msg"></div>
         </div>
-        <h3>관심사 분야</h3>
-        <div class="info">
-        <div>
-
-        </div>  
-          <button class="my_btn"> 디자인 </button>
-          <button class="my_btn"> 디자인 </button>
-          <button class="my_btn"> 디자인 </button>
-          <button class="my_btn"> 디자인 </button>
-          <button class="my_btn"> 디자인 </button>
+        <div class="info" id="info__category">
+          <div id="category-flex">
+            <select class="box" id="category-big" onchange = "categorySelect2(this)">
+              <option disabled selected>대 카테고리</option>
+              <option value = "a">디자인</option>
+              <option value = "b">번역</option>
+              <option value = "c">사진 편집</option>
+              <option value = "d">세무</option>
+              <option value = "e">마케팅</option>
+            </select>
+            <select class="box" id="mcategory2">
+              <option disabled selected>중 카테고리</option>
+            </select>
+          </div>
+          <div class="error-msg"></div>
         </div>
-
-        <div>
-          <button class="my_btn"> IT </button>
-          <button class="my_btn"> IT </button>
-          <button class="my_btn"> IT </button>
-          <button class="my_btn"> IT </button>
-          <button class="my_btn"> IT </button>
+        <div class="info" id="info__category">
+          <div id="category-flex">
+            <select class="box" id="category-big" onchange = "categorySelect3(this)">
+              <option disabled selected>대 카테고리</option>
+              <option value = "a">디자인</option>
+              <option value = "b">번역</option>
+              <option value = "c">사진 편집</option>
+              <option value = "d">세무</option>
+              <option value = "e">마케팅</option>
+            </select>
+            <select class="box" id="mcategory3">
+              <option disabled selected>중 카테고리</option>
+            </select>
+          </div>
+          <div class="error-msg"></div>
         </div>
-
-        
-      
+    
       <div id="join"></div>
       <button id="submit">가입하기</button>
+</form>
       
-        </form>
     </section>
     </div>
   </div>
-  
+  <script>
+  $(document).ready(function(){
+		//회원가입 버튼(회원가입 기능 작동)
+		$("#join").click(function(){
+			$("#join_form").attr("action", "/member/join");
+			$("#join_form").submit();
+		});
+	});
+  </script>
 </body>
 </html>
 
-<script>
-  function check(){
-    alert('어쩌고');
-  }
-
-  $(".my_btn").click(function(){
-    toggleClass(":active");
-  })
-</script>
