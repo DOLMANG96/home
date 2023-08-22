@@ -12,15 +12,14 @@ public class MemberJoinRepositoryImpl implements MemberJoinRepository {
 	
 	@Autowired
 	private SqlSession sqlSession;
+	
+	
+	
+	private static final String namespace = "com.fornula.domain.member.join.MemberJoinMapper";
 
 	@Override
-	public void join(Member member) throws Exception {
-		sqlSession.insert("MemberJoinMapper.join", member);
+	public int join(MemberDTO memberDTO) throws Exception {
+		return sqlSession.getMapper(MemberJoinMapper.class).memberJoin(memberDTO);
 	}
-
-	@Override
-	public void insertjoin(Interest interest) throws Exception {
-		sqlSession.insert("Mem")
-		
-	}
+	
 }

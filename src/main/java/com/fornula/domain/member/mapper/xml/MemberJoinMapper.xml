@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fornula.domain.member.join.MemberJoinMapper">
-	<insert id = "join">
-		INSERT INTO MEMBER (
-		 id,
-		 password,
-	 	 email,
-		) VALUES (
-			#{id}
-			#{password}
-			#{email}
-		)
+	
+	<insert id = "joinMember" parameterType="HashMap">
+		<selectKey keyProperty = "member_idx" resultType = "int" order ="BEFORE">
+		select MEMBER_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		insert into member (
+			memberIdx,
+			id,
+			password,
+	 		email,
+			memberDate,
+	 		memberStatus,
+			loginDate,
+	 		categoryone,
+			categorytwo,
+			categorthree,
+			)
+			values(
+			#{member_idx},
+			#{id},
+			#{password},
+			#{email},
+			sysdate
+			#{memberStatus},
+			sysdate,
+			#{categoryone},
+			#{categorytwo},
+			#{categorthree}
+				)
 	</insert>
-	
-	<insert id = "insert">
-		INSERT INTO
-	</insert>
-	
-	
 	
 </mapper>

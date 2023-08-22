@@ -6,6 +6,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.fornula.domain.member.dto.Member;
+import com.fornula.domain.member.join.MemberDTO;
 import com.fornula.domain.member.join.MemberJoinMapper;
 
 import org.junit.Test;
@@ -18,12 +19,20 @@ public class MemberJoinTest {
 	
 	@Test
 	public void memberJoin() {
-		Member member = new Member();
+		MemberDTO memberDTO = new MemberDTO();
 		
-		member.setId("1");
-		member.setPassword("1");
-		member.setEmail("1");
+		memberDTO.setCategorthree("1");
+		memberDTO.setCategoryone("2");
+		memberDTO.setCategorytwo("3");
+		memberDTO.setEmail("1");
+		memberDTO.setId("1");
+		memberDTO.setLoginDate("sysdate");
+		memberDTO.setMemberDate("sysdate");
+		memberDTO.setMemberIdx(0);
+		memberDTO.setMemberStatus(0);
+		memberDTO.setPassword("1");
 		
-		memberJoinMapper.memberJoin(member);
+		
+		memberJoinMapper.memberJoin(memberDTO);
 	}
 }

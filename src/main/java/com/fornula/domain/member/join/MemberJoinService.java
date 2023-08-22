@@ -7,5 +7,5 @@ import com.fornula.domain.member.dto.Member;
 
 public interface MemberJoinService {
 
-	public void join(Member member) throws Exception;
+	public void join(MemberDTO memberDTO) throws Exception;
 }

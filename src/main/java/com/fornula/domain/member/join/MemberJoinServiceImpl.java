@@ -12,9 +12,9 @@ public class MemberJoinServiceImpl implements MemberJoinService{
 	private MemberJoinRepository memberJoinDAO;
 
 	@Override
-	public void join(Member member) throws Exception {
+	public void join(MemberDTO memberDTO) throws Exception {
 		
-		memberJoinDAO.join(member);
+		memberJoinDAO.join(memberDTO);
 	}
 	
 }
