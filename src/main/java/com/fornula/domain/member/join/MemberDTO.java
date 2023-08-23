@@ -5,14 +5,15 @@ import lombok.Data;
 @Data
 public class MemberDTO {
 
-	private int memberIdx;
+	private int member_Idx;
 	private String id;
 	private String password;
 	private String email;
-	private String memberDate;
-	private int memberStatus;
-	private String loginDate;
-	private String categoryone;
-	private String categorytwo;
-	private String categorthree;
+	private String member_Date;
+	private int member_Status;
+	private String memberfile_name;
+	private String login_Date;
+	private int category_one;
+	private int category_two;
+	private int category_three;
 }

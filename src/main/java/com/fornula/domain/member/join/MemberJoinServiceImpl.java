@@ -5,16 +5,19 @@ import org.springframework.stereotype.Service;
 
 import com.fornula.domain.member.dto.Member;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class MemberJoinServiceImpl implements MemberJoinService{
 	
-	@Autowired
-	private MemberJoinRepository memberJoinDAO;
+	
+	private MemberJoinRepository memberJoinRepository;
 
 	@Override
-	public void join(MemberDTO memberDTO) throws Exception {
+	public void join(MemberDTO memberDTO) {
 		
-		memberJoinDAO.join(memberDTO);
+		memberJoinRepository.join(memberDTO);
 	}
 	
 }

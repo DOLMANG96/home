@@ -16,8 +16,8 @@ public class MemberJoinRepositoryImpl implements MemberJoinRepository {
 	private final SqlSession sqlSession;
 		
 	@Override
-	public int join(MemberDTO memberDTO) throws Exception {
-		return sqlSession.getMapper(MemberJoinMapper.class).memberJoin(memberDTO);
+	public void join(MemberDTO memberDTO) {
+		 sqlSession.getMapper(MemberJoinMapper.class).joinMember(memberDTO);
 	}
 	
 }

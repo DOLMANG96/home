@@ -165,19 +165,9 @@ button#submit {
   height: 45px;
   border-radius: 3px;
   font-size: 15px;
-  cursor: not-allowed;
   
 }
 
-/* 가입하기 */
-#join {
-  width: 100%;
-  height: 20px;
-  margin-bottom: 5px;
-  text-align: center;
-  color:red;
-  font-size: 13px;
-}
 
 .my_btn {
   font-size: 17px;
