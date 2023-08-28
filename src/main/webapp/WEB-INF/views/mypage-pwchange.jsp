@@ -276,7 +276,7 @@
 	margin-bottom: 22px;
 	}
 	
-	/* 박스* /
+	
 	.box {
   width: 100%;
   height: 50px;
@@ -289,6 +289,7 @@
 }
 .box::placeholder {
   color: #a0a0a0;
+  font-size : 17px;
 }
 
 .info#info__id #id-input {
@@ -305,6 +306,29 @@
   margin: auto 0;
   border-radius: 3px;
   font-size: 15px; 
+}
+
+.info .error-msg {
+  position : absolute;
+  font-size : 11px;
+  color:red;
+  margin: 4px 0 0 10px;
+}
+
+.changeBtn {
+
+  border: none;
+  padding: 5px 10px;
+  color: #000;
+  
+}
+
+
+
+.changeBtn {
+  background-color: #ffffff;
+  border-radius : 20px;
+  border: 1px solid #ffb32f;
 }
 
 h3 {
@@ -371,20 +395,22 @@ h3 {
 
 </style>
 <!-- 스타일 태그 끝 -->
-    
+    <form name="passwordForm" method="post" action="mypagePwchange">
        <h3>현재 비밀번호</h3>
         <div class="info" id="info__pw">
-          <input class="box" type="password" placeholder="비밀번호를 입력해 주세요.(8자리 이상)"/>
+          <input class="box" name="password" type="password" placeholder="비밀번호를 입력해 주세요.(8자리 이상)"/>
         </div>
         <div class="area">
-        	<label class="pwname">
-        		<span> 변경할 비밀번호</span>
-        	</label>
-        	<label class="pwname">
-        		<span> 한번 더 입력</span>
-        	</label>
+        		<label> 변경할 비밀번호</label>
+        		<label> 한번 더 입력</label>
+        	<div class="info" id="info__pwCh">
         	<input class="box" type="password" placeholder="비밀번호를 입력해 주세요.(8자리 이상)"/>
+        	<div class = "error-msg"></div>
+        	</div>
+        	<div class="info" id="info__pwRe">
         	<input class="box" type="password" placeholder="비밀번호를 입력해 주세요.(8자리 이상)"/>
+        	<div class = "error-msg"></div>
+        	</div>
         
         
         	
@@ -395,9 +421,11 @@ h3 {
         
         
         
-      <div id="join"></div>
-      <button id="submit">변경하기</button>
-      
+      <div id="join" style = "float :right;">
+      <input type="button" class = "changeBtn" value="변경하기" onclick="submitCheck();">
+      </div>
+      <span>&nbsp</span>
+   </form>
 </section>
         
                   </div>
@@ -428,10 +456,11 @@ h3 {
                     <h3 class="widget-title">나의 정보</h3>
                
                     <ul>
-                        <li><a href="#">전문가 정보</a></li>
-                        <li><a href="#">구매 관리</a></li>
-                        <li><a href="#">비밀번호 변경</a></li>
-                        <li><a href="#">회원 탈퇴</a></li>
+                       <li><a href="<c:url value="/"/>">전문가 정보</a></li>
+                        <li><a href="<c:url value="/mypagePurchase"/>">구매 관리</a></li>
+                        <li><a href="<c:url value="/mypagePwchange"/>">비밀번호 관리</a></li>
+                        <li><a href="<c:url value="/mypageSession"/>">회원 탈퇴</a></li>
+                        
                     </ul>
                 </div>
                
@@ -490,6 +519,7 @@ h3 {
 </footer>
 
 
+ <script defer src="<c:url value="/js/mypage-pwchange.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/jquery.min.js?ver=3.6.0"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/popper.min.js?ver=1.16.1"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/bootstrap.min.js?ver=4.6.0"/>"></script>
@@ -500,5 +530,40 @@ h3 {
 <script type="text/javascript" src="<c:url value="/js/magnific-popup.min.js?ver=1.1.0"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/custom-theme.js?ver=1.0.0"/>"></script>
 
+<script type="text/javascript">
+ 
+
+ /* *****************************************************************************/
+ function submitCheck() {
+	
+	
+	if(passwordForm.password.value==""){
+		alert("비밀번호 입력해주세요")
+		passwordForm.password.focus();
+		return;
+	}
+	
+	if(passwordForm.password.value==""){
+		alert("비밀번호 입력해주세요")
+		passwordForm.password.focus();
+		return;
+	}
+	
+	
+	
+
+	
+	passwordForm.submit();
+}
+
+
+
+
+
+
+
+
+ </script>
+ 
 </body>
 </html>
